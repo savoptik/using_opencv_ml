@@ -16,31 +16,31 @@
 #include <opencv2/dnn.hpp>
 #include <mnist/mnist_reader.hpp>
 
-void conversionMNISTToCVMAT(std::vector<std::vector<unsigned char>>& imgs, cv::Mat& res);
-void convertionLablesToVector(std::vector<unsigned char>& lables, cv::Mat& res);
+void conversionMNISTToCVMAT(std::vector<std::vector<unsigned char>>& imgs, cv::Mat& res); // функция конвертирования примеров MNIST в матрицу
+void convertionLablesToVector(std::vector<unsigned char>& lables, cv::Mat& res); // конвертирование меток MNIST в матрицу позиционных векторов
 
 int main(int argc, const char * argv[]) {
     auto ds = mnist::read_dataset(); // читаем базу мнист
-    cv::Mat trainImages(ds.training_images.size(), 28 * 28, CV_32F), testImages(ds.test_images.size(), 28 * 28, CV_32F);
-    conversionMNISTToCVMAT(ds.training_images, trainImages);
-    conversionMNISTToCVMAT(ds.test_images, testImages);
-    cv::Mat trainLables(ds.training_labels.size(), 10, CV_32F), testLables(ds.test_labels.size(), 10, CV_32F);
-    convertionLablesToVector(ds.training_labels, trainLables);
-    convertionLablesToVector(ds.test_labels, testLables);
-    auto traindata = cv::ml::TrainData::create(trainImages, cv::ml::ROW_SAMPLE, trainLables);
-    return 0;
+    cv::Mat trainImages(ds.training_images.size(), 28 * 28, CV_32F), testImages(ds.test_images.size(), 28 * 28, CV_32F); // матрицы для выборок
+    conversionMNISTToCVMAT(ds.training_images, trainImages); // преобразование тренеровочных изображений
+    conversionMNISTToCVMAT(ds.test_images, testImages); // преобразование тестовых изображений
+    cv::Mat trainLables(ds.training_labels.size(), 10, CV_32F), testLables(ds.test_labels.size(), 10, CV_32F); // матрицы позиционных векторов
+    convertionLablesToVector(ds.training_labels, trainLables); // преобразование тренеровочных меток меток MNIST в матрицу позиционных векторов
+    convertionLablesToVector(ds.test_labels, testLables); // преобразование тестовых меток MNIST в матрицу позиционных векторов
+    auto traindata = cv::ml::TrainData::create(trainImages, cv::ml::ROW_SAMPLE, trainLables); // создание объекта тренеровочных данных
+    return 0; // выход
 }
 
 void conversionMNISTToCVMAT(std::vector<std::vector<unsigned char>>& imgs, cv::Mat& res) {
-    for (int i = 0; i < res.rows; i++) {
-        for (int j = 0; j < res.cols; j++) {
-            res.at<float>(i, j) = imgs[i][j];
+    for (int i = 0; i < res.rows; i++) { // едем по столбцам
+        for (int j = 0; j < res.cols; j++) { // едем по строкам
+            res.at<float>(i, j) = imgs[i][j]; // переписываем значения
         }
     }
 }
 
 void convertionLablesToVector(std::vector<unsigned char>& lables, cv::Mat& res) {
-    for (int i = 0; i < res.rows; i++) {
-        res.at<float>(i, lables[i]) = 1;
+    for (int i = 0; i < res.rows; i++) { // едем по примерам
+        res.at<float>(i, lables[i]) = 1; // ставим единицу в необходимом месте
     }
 }
