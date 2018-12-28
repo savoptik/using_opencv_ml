@@ -39,6 +39,7 @@
 		FE4FA2FC21CFBE8900AE6FF5 /* libopencv_dnn.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dnn.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_dnn.3.4.2.dylib; sourceTree = "<group>"; };
 		FE4FA2FD21CFBE8900AE6FF5 /* libopencv_ml.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_ml.3.4.2.dylib; sourceTree = "<group>"; };
 		FE4FA2FE21CFBE8900AE6FF5 /* libopencv_imgcodecs.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_imgcodecs.3.4.2.dylib; sourceTree = "<group>"; };
+		FEA5F1C021D671F3004E036D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		FE4FA2E421CFBCEB00AE6FF5 = {
 			isa = PBXGroup;
 			children = (
+				FEA5F1C021D671F3004E036D /* README.md */,
 				FE4FA2EF21CFBCEC00AE6FF5 /* using_opencv_l */,
 				FE4FA2EE21CFBCEC00AE6FF5 /* Products */,
 				FE4FA2F721CFBE8800AE6FF5 /* Frameworks */,
