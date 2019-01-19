@@ -27,7 +27,15 @@ int main(int argc, const char * argv[]) {
     traindata->setTrainTestSplit(18000);
     auto ts = traindata->getTestSamples();
     std::cout << "Получено " << ts.rows << " тестовых примеров\n";
-    // Нормальный Байсовский классификатор
-    auto nbc = cv::ml::StatModel::train<cv::ml::NormalBayesClassifier>(traindata);
+
+    // машина опорных векторов
+    auto svm = cv::ml::SVM::create();
+    svm->setType(cv::ml::SVM::C_SVC);
+    svm->setKernel(cv::ml::SVM::LINEAR);
+    svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
+    svm->trainAuto(traindata);
+    cv::Mat outresponces(2000, 1, CV_32F);
+    float err = svm->calcError(traindata, false, outresponces);
+    std::cout << "Ошибка предсказания " << err << std::endl;
     return 0; // выход
 }
