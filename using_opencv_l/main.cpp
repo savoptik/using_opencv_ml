@@ -72,5 +72,8 @@ int main(int argc, const char * argv[]) {
     // к ближайших соседей
 /*    auto kNearest = cv::ml::StatModel::train<cv::ml::KNearest>(traindata);
     std::cout << "Ошибка к соседей " << kNearest->calcError(traindata, true, outresponces) << " при " << kNearest->getDefaultK() << " соседях по умолчанию и " << std::endl; */
+    // нормальный байесовский классификатор
+/*    auto nbc = cv::ml::StatModel::train<cv::ml::NormalBayesClassifier>(traindata);
+    std::cout << " ошибка нормального байесовского классификатора " << nbc->calcError(traindata, true, outresponces) << std::endl; */
     return 0; // выход
 }
