@@ -16,6 +16,7 @@
 #include <opencv2/dnn.hpp>
 
 int main(int argc, const char * argv[]) {
+    cv::Mat outresponces;
     auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0);
     auto  datatrayn = traindata->getTrainSamples();
     std::cout << "Имеем  " << datatrayn.rows << " примеров длинной вектора в " << datatrayn.cols << std::endl;
@@ -36,10 +37,10 @@ int main(int argc, const char * argv[]) {
     svm->setKernel(cv::ml::SVM::LINEAR);
     svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 1000, 1e-9));
     svm->trainAuto(traindata);
-    cv::Mat outresponces(2000, 1, CV_32F);
     float err = svm->calcError(traindata, true, outresponces);
     std::cout << "Ошибка предсказания " << err << std::endl; */
-    auto mlp = cv::ml::ANN_MLP::create();
+    // многослойный персептрон
+/*    auto mlp = cv::ml::ANN_MLP::create();
     cv::Mat ls({datatrayn.cols, 8, datatrayn.cols});
     mlp->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
     mlp->setLayerSizes(ls);
@@ -52,6 +53,24 @@ int main(int argc, const char * argv[]) {
     }
     mlp->train(datatrayn, cv::ml::ROW_SAMPLE, newtrainresponce);
     float err = mlp->calcError(traindata, true, newtrainresponce);
-    std::cout << "ошибка предсказания " << err << std::endl;
+    std::cout << "ошибка предсказания " << err << std::endl; */
+    // бустинг
+/*    auto boosting = cv::ml::Boost::create();
+    boosting->setBoostType(cv::ml::Boost::Types::REAL);
+    boosting->setWeakCount(200);
+    boosting->setWeightTrimRate(0);
+    boosting->train(traindata);
+    float err = boosting->calcError(traindata, true, outresponces);
+    std::cout << "Ошибка для бустинга " << err << std::endl; */
+    // случайный лес
+    /*    auto randomForest = cv::ml::RTrees::create();
+    randomForest->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
+    cv::Mat newtrainresponce(trainResponse.rows, datatrayn.cols, CV_32F);
+    randomForest->setActiveVarCount(4);
+    randomForest->train(traindata);
+    std::cout <<"Ошибка случайного леса " << randomForest->calcError(traindata, true, outresponces); */
+    // к ближайших соседей
+/*    auto kNearest = cv::ml::StatModel::train<cv::ml::KNearest>(traindata);
+    std::cout << "Ошибка к соседей " << kNearest->calcError(traindata, true, outresponces) << " при " << kNearest->getDefaultK() << " соседях по умолчанию и " << std::endl; */
     return 0; // выход
 }
