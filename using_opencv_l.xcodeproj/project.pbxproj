@@ -15,6 +15,10 @@
 		FE4FA30321CFBE8900AE6FF5 /* libopencv_dnn.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4FA2FC21CFBE8900AE6FF5 /* libopencv_dnn.3.4.2.dylib */; };
 		FE4FA30421CFBE8900AE6FF5 /* libopencv_ml.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4FA2FD21CFBE8900AE6FF5 /* libopencv_ml.3.4.2.dylib */; };
 		FE4FA30521CFBE8900AE6FF5 /* libopencv_imgcodecs.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4FA2FE21CFBE8900AE6FF5 /* libopencv_imgcodecs.3.4.2.dylib */; };
+		FE57191D21F62C460069F8C4 /* libopencv_video.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE57191C21F62C460069F8C4 /* libopencv_video.3.4.2.dylib */; };
+		FEBD9AC921F62D54008F7B6F /* libopencv_img_hash.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBD9AC821F62D54008F7B6F /* libopencv_img_hash.3.4.2.dylib */; };
+		FEBD9ACC21F62DBC008F7B6F /* libopencv_videoio.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBD9ACA21F62DBB008F7B6F /* libopencv_videoio.3.4.2.dylib */; };
+		FEBD9ACD21F62DBC008F7B6F /* libopencv_videostab.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBD9ACB21F62DBB008F7B6F /* libopencv_videostab.3.4.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,7 +43,11 @@
 		FE4FA2FC21CFBE8900AE6FF5 /* libopencv_dnn.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dnn.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_dnn.3.4.2.dylib; sourceTree = "<group>"; };
 		FE4FA2FD21CFBE8900AE6FF5 /* libopencv_ml.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_ml.3.4.2.dylib; sourceTree = "<group>"; };
 		FE4FA2FE21CFBE8900AE6FF5 /* libopencv_imgcodecs.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_imgcodecs.3.4.2.dylib; sourceTree = "<group>"; };
+		FE57191C21F62C460069F8C4 /* libopencv_video.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_video.3.4.2.dylib; sourceTree = "<group>"; };
 		FEA5F1C021D671F3004E036D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FEBD9AC821F62D54008F7B6F /* libopencv_img_hash.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_img_hash.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_img_hash.3.4.2.dylib; sourceTree = "<group>"; };
+		FEBD9ACA21F62DBB008F7B6F /* libopencv_videoio.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_videoio.3.4.2.dylib; sourceTree = "<group>"; };
+		FEBD9ACB21F62DBB008F7B6F /* libopencv_videostab.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.4.2.dylib; path = ../../../../../../usr/local/Cellar/opencv/3.4.2/lib/libopencv_videostab.3.4.2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBD9ACC21F62DBC008F7B6F /* libopencv_videoio.3.4.2.dylib in Frameworks */,
+				FEBD9ACD21F62DBC008F7B6F /* libopencv_videostab.3.4.2.dylib in Frameworks */,
+				FEBD9AC921F62D54008F7B6F /* libopencv_img_hash.3.4.2.dylib in Frameworks */,
+				FE57191D21F62C460069F8C4 /* libopencv_video.3.4.2.dylib in Frameworks */,
 				FE4FA2FF21CFBE8900AE6FF5 /* libopencv_highgui.3.4.2.dylib in Frameworks */,
 				FE4FA30021CFBE8900AE6FF5 /* libopencv_imgproc.3.4.2.dylib in Frameworks */,
 				FE4FA30121CFBE8900AE6FF5 /* libopencv_dnn_objdetect.3.4.2.dylib in Frameworks */,
@@ -89,6 +101,10 @@
 		FE4FA2F721CFBE8800AE6FF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEBD9ACA21F62DBB008F7B6F /* libopencv_videoio.3.4.2.dylib */,
+				FEBD9ACB21F62DBB008F7B6F /* libopencv_videostab.3.4.2.dylib */,
+				FEBD9AC821F62D54008F7B6F /* libopencv_img_hash.3.4.2.dylib */,
+				FE57191C21F62C460069F8C4 /* libopencv_video.3.4.2.dylib */,
 				FE4FA2FB21CFBE8900AE6FF5 /* libopencv_core.3.4.2.dylib */,
 				FE4FA2FA21CFBE8900AE6FF5 /* libopencv_dnn_objdetect.3.4.2.dylib */,
 				FE4FA2FC21CFBE8900AE6FF5 /* libopencv_dnn.3.4.2.dylib */,
