@@ -17,7 +17,7 @@
 
 int main(int argc, const char * argv[]) {
     cv::Mat outresponces;
-    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0);
+    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0, 0);
     auto  datatrayn = traindata->getTrainSamples();
     std::cout << "Имеем  " << datatrayn.rows << " примеров длинной вектора в " << datatrayn.cols << std::endl;
     auto trainResponse = traindata->getResponses();
@@ -33,12 +33,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "Получено " << ts.rows << " тестовых примеров\n";
     // многослойный персептрон
     auto mlp = cv::ml::ANN_MLP::create();
-    cv::Mat ls({datatrayn.cols, 8, datatrayn.cols});
+    cv::Mat ls({datatrayn.cols, 50, trainlables.rows});
     mlp->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
     mlp->setLayerSizes(ls);
     mlp->setActivationFunction(cv::ml::ANN_MLP::ActivationFunctions::SIGMOID_SYM);
     mlp->setTrainMethod(cv::ml::ANN_MLP::BACKPROP);
-    cv::Mat newtrainresponce(trainResponse.rows, datatrayn.cols, CV_32F);
+    cv::Mat newtrainresponce(trainResponse.rows, trainlables.rows, CV_32F);
     newtrainresponce = newtrainresponce * 0;
     for (int i = 0; i < newtrainresponce.rows; i++) {
         newtrainresponce.at<float>(i, trainResponse.at<float>(i)) = 1;
