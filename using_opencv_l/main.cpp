@@ -17,7 +17,7 @@
 
 int main(int argc, const char * argv[]) {
     cv::Mat outresponces;
-    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0);
+    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0, 0);
     auto  datatrayn = traindata->getTrainSamples();
     std::cout << "Имеем  " << datatrayn.rows << " примеров длинной вектора в " << datatrayn.cols << std::endl;
     auto trainResponse = traindata->getResponses();
@@ -33,8 +33,8 @@ int main(int argc, const char * argv[]) {
     std::cout << "Получено " << ts.rows << " тестовых примеров\n";
     // бустинг
     auto boosting = cv::ml::Boost::create();
-    boosting->setBoostType(cv::ml::Boost::Types::REAL);
-    boosting->setWeakCount(200);
+    boosting->setBoostType(cv::ml::Boost::Types::DISCRETE);
+    boosting->setWeakCount(10000);
     boosting->setWeightTrimRate(0);
     boosting->train(traindata);
     float err = boosting->calcError(traindata, true, outresponces);
