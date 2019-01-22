@@ -17,7 +17,7 @@
 
 int main(int argc, const char * argv[]) {
     cv::Mat outresponces;
-    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0);
+    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0, 0);
     auto  datatrayn = traindata->getTrainSamples();
     std::cout << "Имеем  " << datatrayn.rows << " примеров длинной вектора в " << datatrayn.cols << std::endl;
     auto trainResponse = traindata->getResponses();
