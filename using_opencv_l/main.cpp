@@ -17,7 +17,7 @@
 
 int main(int argc, const char * argv[]) {
     cv::Mat outresponces;
-    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0);
+    auto traindata = cv::ml::TrainData::loadFromCSV("./letter-recognition.data.csv", 0, 0);
     auto  datatrayn = traindata->getTrainSamples();
     std::cout << "Имеем  " << datatrayn.rows << " примеров длинной вектора в " << datatrayn.cols << std::endl;
     auto trainResponse = traindata->getResponses();
@@ -33,10 +33,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Получено " << ts.rows << " тестовых примеров\n";
     // случайный лес
     auto randomForest = cv::ml::RTrees::create();
-    randomForest->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
+    randomForest->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 10000, 1e-6));
     cv::Mat newtrainresponce(trainResponse.rows, datatrayn.cols, CV_32F);
     randomForest->setActiveVarCount(4);
     randomForest->train(traindata);
-    std::cout <<"Ошибка случайного леса " << randomForest->calcError(traindata, true, outresponces);
+    std::cout <<"Ошибка случайного леса " << randomForest->calcError(traindata, true, outresponces) << std::endl;
     return 0; // выход
 }
